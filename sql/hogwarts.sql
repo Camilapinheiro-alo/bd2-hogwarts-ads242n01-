@@ -71,7 +71,7 @@ CREATE TABLE aluno (
 CREATE TABLE matricula (
     id_aluno INT,
     id_disc INT,
-    nota DECIMAL(4,2),
+    nota DECIMAL(4,3),
     PRIMARY KEY (id_aluno, id_disc),
     CONSTRAINT chk_matricula_nota CHECK (nota BETWEEN 0 AND 10),
     CONSTRAINT fk_matricula_aluno FOREIGN KEY (id_aluno)
