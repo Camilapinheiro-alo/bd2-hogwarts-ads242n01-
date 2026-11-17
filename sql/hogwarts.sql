@@ -1,4 +1,4 @@
-# 🪄 Atividade Prática — Escola de Magia de Hogwarts
+#🪄 Atividade Prática — Escola de Magia de Hogwarts
 
 **Disciplina:** Manipulação de Dados / Banco de Dados II  
 **Professor:** Aguinaldo Neto  
