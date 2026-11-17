@@ -71,7 +71,7 @@ CREATE TABLE aluno (
 CREATE TABLE matricula (
     id_aluno INT,
     id_disc INT,
-    nota DECIMAL(4,3),
+    nota DECIMAL(4,2),
     PRIMARY KEY (id_aluno, id_disc),
     CONSTRAINT chk_matricula_nota CHECK (nota BETWEEN 0 AND 10),
     CONSTRAINT fk_matricula_aluno FOREIGN KEY (id_aluno)
@@ -321,9 +321,11 @@ DELETE FROM aluno
 WHERE nome = 'Vicente Crabbe';
 
 -- Questão 19: excluir disciplinas sem matrícula.
-DELETE FROM disciplina
-WHERE id_disc NOT IN (
-    SELECT id_disc FROM matricula
+DELETE FROM disciplina AS d
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM matricula AS m
+    WHERE m.id_disc = d.id_disc
 );
 
 -- Conferência da seção 3
