@@ -58,6 +58,7 @@ CREATE TABLE disciplina (
 CREATE TABLE aluno (
     id_aluno INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
+    CONSTRAINT chk_aluno_nome CHECK (TRIM(nome) <> ''),
     ano_escolar INT,
     id_casa INT,
     saldo_galeoes DECIMAL(10,2) DEFAULT 0,
@@ -368,7 +369,7 @@ BEGIN
     FROM produto
     WHERE id_produto = NEW.id_produto;
 
-    SELECT saldo_galeoes
+    SELECT saldo_galeoesgit status
     INTO v_saldo
     FROM aluno
     WHERE id_aluno = NEW.id_aluno;
