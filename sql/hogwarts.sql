@@ -371,10 +371,10 @@ BEGIN
     FROM produto
     WHERE id_produto = NEW.id_produto;
 
-    SELECT saldo_galeoesgit status
-    INTO v_saldo
-    FROM aluno
-    WHERE id_aluno = NEW.id_aluno;
+   SELECT saldo_galeoes
+INTO v_saldo
+FROM aluno
+WHERE id_aluno = NEW.id_aluno;
 
     IF v_estoque < NEW.quantidade THEN
         SIGNAL SQLSTATE '45000'
